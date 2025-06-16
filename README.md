@@ -52,7 +52,7 @@ Se utiliza un único usuario global para autenticación (modo simplificado):
 
 Usuario: admin
 
-Contraseña: admin123
+Contraseña: 1234
 
 Funcionalidades principales
 Login con JWT
