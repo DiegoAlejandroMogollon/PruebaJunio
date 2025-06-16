@@ -1,0 +1,31 @@
+@model InventoryFrontend.Models.Product
+
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+
+<h2>Crear Nuevo Producto</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Tipo de Elaboración</label>
+        <select asp-for="TipoElaboracion" class="form-control">
+            <option>Elaborado a mano</option>
+            <option>Elaborado a mano y máquina</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Estado</label>
+        <select asp-for="Estado" class="form-control">
+            <option>En bodega</option>
+            <option>Vendido</option>
+            <option>Devuelto</option>
+            <option>Otro</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Crear</button>
+</form>

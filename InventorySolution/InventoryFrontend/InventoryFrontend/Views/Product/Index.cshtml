@@ -1,0 +1,40 @@
+@model List<InventoryFrontend.Models.Product>
+
+@{
+    ViewData["Title"] = "Listado de Productos";
+    var agrupados = Model.GroupBy(p => p.Estado);
+}
+
+<h2>Listado de Productos por Estado</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+@foreach (var grupo in agrupados)
+{
+    <h3>@grupo.Key</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Tipo Elaboración</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var producto in grupo)
+        {
+            <tr>
+                <td>@producto.Id</td>
+                <td>@producto.Nombre</td>
+                <td>@producto.TipoElaboracion</td>
+                <td>@producto.Estado</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+<a class="btn btn-success mb-3" href="@Url.Action("Create", "Product")">Crear nuevo producto</a>
